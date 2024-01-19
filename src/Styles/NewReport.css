@@ -1,0 +1,31 @@
+/* MyForm.css */
+.my-form .p-grid {
+    margin-bottom: 1rem; /* Spacing between rows */
+}
+
+.my-form .p-inputtext {
+    width: 100%; /* Ensure inputs take full width of their container */
+}
+
+.my-form .p-dropdown {
+    width: 100%; /* Ensure dropdown takes full width */
+}
+
+.my-form .p-textarea {
+    width: 100%; /* Ensure textareas take full width */
+}
+.row-custom{
+    display:flex;
+    flex-direction:row;
+    justify-content:space-between;
+}
+.col-custom{
+    width:47%;
+
+}
+.truncated {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    max-width: 150px;
+}

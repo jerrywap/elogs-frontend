@@ -1,24 +1,32 @@
 import logo from './logo.svg';
 import './App.css';
+import "primereact/resources/themes/lara-light-cyan/theme.css";
+import { PrimeReactProvider, PrimeReactContext } from 'primereact/api';
+import {BrowserRouter, Route, Router, Routes, Switch} from "react-router-dom";
+import Home from "./Pages/Home";
+import Details from "./Pages/Details";
+import Layout from "./Components/Layout";
+import 'primeicons/primeicons.css';
+import {PropertyProvider} from "./Service/PropertyContext";
 
-function App() {
+
+
+function App({ Component, pageProps }) {
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <PrimeReactProvider>
+          <PropertyProvider>
+              <Layout>
+                  <BrowserRouter>
+                      <Routes>
+                          <Route exact path="/" index element={<Home />} />
+                          <Route exact path="/job-details/:id" index element={<Details />} />
+                      </Routes>
+                  </BrowserRouter>
+              </Layout>
+          </PropertyProvider>
+
+      </PrimeReactProvider>
   );
 }
 
